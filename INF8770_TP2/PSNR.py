@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/python-peak-signal-to-noise-ratio-psnr/
+
 from math import log10, sqrt
 import cv2
 import numpy as np

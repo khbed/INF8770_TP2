@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from format_converter import *
 from SSIM import ssim_compare
 from PSNR import psnr_compare
@@ -8,6 +10,10 @@ images_path = "images/"
 jpeg_path = "jpeg_images/"
 jpeg2000_path = "jpeg2000_images/"
 
+if not os.path.exists(jpeg_path):
+   os.makedirs(jpeg_path)
+if not os.path.exists(jpeg2000_path):
+   os.makedirs(jpeg2000_path)
 
 def remove_transparency(image_path):
     Image.open(image_path).convert("RGB").save(image_path)
@@ -35,12 +41,12 @@ def main():
         print(name + ": \n")
         print("Jpeg: ")
         print(f"SSIM: {ssim_jpeg}")
-        print(f"PSNR: {psnr_jpeg}")
+        print(f"PSNR: {psnr_jpeg} dB")
         print(f"Taux de compression: {compression_rate_jpeg} \n")
 
         print("Jpeg2000: ")
         print(f"SSIM: {ssim_jpeg2000}")
-        print(f"PSNR: {psnr_jpeg2000}")
+        print(f"PSNR: {psnr_jpeg2000} dB")
         print(f"Taux de compression: {compression_rate_jpeg2000} \n")
 
 
